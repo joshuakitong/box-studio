@@ -1,4 +1,4 @@
-# BOX84 Home Studio
+# BOX84 Studio
 
 This is a responsive landing page built with **React**, **Vite**, **Tailwind CSS**, and **GSAP**, showcasing BOX84 Home Studio services.
 

@@ -4,7 +4,7 @@ export default function NavBar() {
   const location = useLocation();
 
   const links = [
-    { path: "/", label: "BOX84 STUDIO" },
+    { path: "/", label: "HOME" },
     { path: "/about", label: "ABOUT" },
     { path: "/services", label: "SERVICES" },
     { path: "/contact", label: "CONTACT" },

@@ -1,29 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavBar() {
+  const location = useLocation();
+
+  const links = [
+    { path: "/", label: "BOX84 STUDIO" },
+    { path: "/about", label: "ABOUT" },
+    { path: "/services", label: "SERVICES" },
+    { path: "/contact", label: "CONTACT" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-black text-white shadow-md z-50">
-      <ul className="flex justify-center space-x-8 py-4 text-lg font-semibold">
-        <li>
-          <Link to="/" className="hover:text-blue-500">
-            BOX84 STUDIO
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className="hover:text-blue-500">
-            ABOUT
-          </Link>
-        </li>
-        <li>
-          <Link to="/services" className="hover:text-blue-500">
-            SERVICES
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" className="hover:text-blue-500">
-            CONTACT
-          </Link>
-        </li>
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <ul className="flex items-center space-x-4 md:space-x-16 sm:space-x-8 px-2 md:px-8 sm:px-4 py-2 rounded-full 
+                     bg-black/10 backdrop-blur-md border-2 border-white 
+                     text-sm md:text-lg sm:text-md">
+        {links.map((link) => (
+          <li>
+            <Link
+              to={link.path}
+              className={`whitespace-nowrap transition-colors ${
+                location.pathname === link.path
+                  ? "text-blue-500 font-semibold"
+                  : "text-white hover:text-blue-400"
+              }`}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

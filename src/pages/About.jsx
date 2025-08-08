@@ -1,7 +1,11 @@
+import AboutSection from "../components/AboutSection";
+import ReleasesSection from "../components/ReleasesSection";
+
 export default function About() {
   return (
-    <div className="flex items-center justify-center min-h-screen max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold">About</h1>
-    </div>
+    <>
+      <AboutSection />
+      <ReleasesSection />
+    </>
   );
 }

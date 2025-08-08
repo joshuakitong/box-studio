@@ -1,5 +1,5 @@
-import AboutSection from "../components/AboutSection";
-import ReleasesSection from "../components/ReleasesSection";
+import AboutSection from "../sections/About";
+import ReleasesSection from "../sections/Releases";
 
 export default function About() {
   return (

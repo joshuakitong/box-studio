@@ -1,5 +1,5 @@
-import EquipmentSection from "../components/EquipmentSection";
-import ServicesSection from "../components/ServicesSection";
+import EquipmentSection from "../sections/Equipment";
+import ServicesSection from "../sections/Services";
 
 export default function Services() {
   return (

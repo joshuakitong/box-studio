@@ -16,7 +16,7 @@ export default function NavBar() {
                      bg-black/10 backdrop-blur-md border-2 border-white 
                      text-sm md:text-lg sm:text-md font-semibold">
         {links.map((link) => (
-          <li>
+          <li key={link.path}>
             <Link
               to={link.path}
               className={`whitespace-nowrap transition-colors hover:text-white ${

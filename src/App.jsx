@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useLayoutEffect, useRef } from "react";
+import ScrollToTop from "./components/ScrollToTop";
 import gsap from "gsap";
 
 import NavBar from "./components/NavBar";
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="bg-black text-white">
         <NavBar />
         <AnimatedRoutes />

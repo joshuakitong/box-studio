@@ -16,8 +16,8 @@ function AnimatedRoutes() {
   useLayoutEffect(() => {
     gsap.fromTo(
       containerRef.current,
-      { opacity: 0, scale: 0.95, filter: "blur(8px)" },
-      { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }
+      { opacity: 0, filter: "blur(4px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }
     );
   }, [location]);
 

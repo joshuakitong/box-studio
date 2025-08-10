@@ -28,8 +28,8 @@ export default function Hero() {
               <div className="border border-white rounded-md bg-black w-[14rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] flex items-center justify-center">
                 <img
                   className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
-                  src={`${import.meta.env.BASE_URL}box84studio.png`}
-                  alt="BOX84 Studio"
+                  src={`${import.meta.env.BASE_URL}boxstudio.png`}
+                  alt="Box Studio"
                 />
               </div>
             </div>

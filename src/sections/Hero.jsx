@@ -4,7 +4,7 @@ export default function Hero() {
       <div className="overflow-hidden py-12 max-w-full">
         <div className="relative flex items-center justify-center w-full">
           {/* Left Speaker */}
-          <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-2 sm:-mr-0 -mt-24 md:-mt-36 lg:-mt-72">
+          <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-4 sm:-mr-2 -mt-24 md:-mt-36 lg:-mt-72">
             <img
               src={`${import.meta.env.BASE_URL}hero/speakerbodyl.png`}
               alt="Speaker Body Left"
@@ -25,7 +25,7 @@ export default function Hero() {
           {/* Monitor */}
           <div className="relative z-10">
             <div className="border border-white rounded-md p-2 pb-6 bg-gradient-to-tl from-[#0a0a0a] via-[#232323] to-[#0a0a0a]">
-              <div className="border border-white rounded-md bg-black w-[14rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] flex items-center justify-center">
+              <div className="border border-white rounded-md bg-black w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] flex items-center justify-center">
                 <img
                   className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
                   src={`${import.meta.env.BASE_URL}boxstudio.png`}
@@ -36,7 +36,7 @@ export default function Hero() {
           </div>
 
           {/* Right Speaker */}
-          <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-2 sm:-ml-0 -mt-24 md:-mt-36 lg:-mt-72">
+          <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-4 sm:-ml-2 -mt-24 md:-mt-36 lg:-mt-72">
             <img
               src={`${import.meta.env.BASE_URL}hero/speakerbodyr.png`}
               alt="Speaker Body Right"

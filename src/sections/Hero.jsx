@@ -124,7 +124,7 @@ export default function Hero() {
     <div className="flex items-center justify-center min-h-screen">
       <div
         ref={containerRef}
-        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[96%] mx-auto border border-white rounded-lg bg-center bg-no-repeat bg-cover overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[90%] mx-auto border border-white rounded-lg bg-center bg-no-repeat bg-cover overflow-hidden"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}hero/background.jpg)`,
         }}
@@ -132,7 +132,7 @@ export default function Hero() {
         <div className="pb-12 mt-12 max-w-full flex justify-center w-full">
           <div className="relative flex items-center justify-center max-w-fit">
             {/* Left Speaker */}
-            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-4 -mt-24 md:-mt-36 lg:-mt-72">
+            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-4 sm:-mr-2 -mt-28 sm:-mt-30 md:-mt-34 lg:-mt-68">
               <img
                 src={`${import.meta.env.BASE_URL}hero/speakerbodyl.png`}
                 alt="Speaker Body Left"
@@ -154,11 +154,11 @@ export default function Hero() {
 
             {/* Monitor */}
             <div className="relative z-10">
-              <div className="border border-white rounded-md p-2 pb-6 bg-gradient-to-tl from-[#0b0b0b] via-[#232323] to-[#0b0b0b]">
+              <div className="border border-white rounded-md p-1 pb-6 bg-gradient-to-tl from-[#0b0b0b] via-[#232323] to-[#0b0b0b]">
                 <div
                   ref={monitorRef}
                   className="relative overflow-hidden flex flex-col sm:flex-row items-center justify-center border border-white rounded-md bg-gradient-to-tl from-black via-[#131313] to-black
-                    w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] 
+                    w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[14rem] md:w-[34rem] md:h-[19rem] lg:w-[47rem] lg:h-[26rem] 
                     p-1 text-center sm:text-left gap-2 sm:gap-4"
                 >
                   <img
@@ -208,7 +208,7 @@ export default function Hero() {
             </div>
 
             {/* Right Speaker */}
-            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-4 -mt-24 md:-mt-36 lg:-mt-72">
+            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-4 sm:-ml-2 -mt-28 sm:-mt-30 md:-mt-34 lg:-mt-68">
               <img
                 src={`${import.meta.env.BASE_URL}hero/speakerbodyr.png`}
                 alt="Speaker Body Right"

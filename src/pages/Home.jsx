@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HomeAboutSection />
+      <section id="about">
+        <HomeAboutSection />
+      </section>
       <HomeServicesSection />
       <ContactSection />
     </>

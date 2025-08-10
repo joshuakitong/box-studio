@@ -1,7 +1,102 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
 export default function Hero() {
+  const containerRef = useRef(null);
+  const monitorRef = useRef(null);
+  const micRef = useRef(null);
+  const yellowLeftRef = useRef(null);
+  const blackLeftRef = useRef(null);
+  const yellowRightRef = useRef(null);
+  const blackRightRef = useRef(null);
+  const ringsTimeline = useRef(null);
+
+  useEffect(() => {
+    const mic = micRef.current;
+    const yellowLeft = yellowLeftRef.current;
+    const blackLeft = blackLeftRef.current;
+    const yellowRight = yellowRightRef.current;
+    const blackRight = blackRightRef.current;
+
+    ringsTimeline.current = gsap.timeline({ paused: true, repeat: -1, defaults: { ease: "power2.inOut" } });
+
+    ringsTimeline.current.to(
+      [yellowLeft, yellowRight],
+      {
+        scale: 1.015,
+        y: -1,
+        duration: 0.33,
+        yoyo: true,
+        repeat: -1,
+      },
+      0
+    );
+
+    ringsTimeline.current.to(
+      [blackLeft, blackRight],
+      {
+        scale: 1.0175,
+        y: -1.5,
+        duration: 0.33,
+        yoyo: true,
+        repeat: -1,
+        delay: 0.067,
+      },
+      0
+    );
+
+    const onHoverIn = () => {
+      gsap.to(monitorRef.current, {
+        boxShadow: "0 0 12px 0 rgba(255, 255, 255, 0.25)",
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(mic, { 
+        y: 42, 
+        scale:1.1, 
+        uration: 0.7, 
+        ease: "power2.out" 
+      });
+      ringsTimeline.current.play();
+    };
+
+    const onHoverOut = () => {
+      gsap.to(monitorRef.current, {
+        boxShadow: "0 0 0px 0px rgba(0,0,0,0)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+      gsap.to(mic, { 
+        y: 0, 
+        scale:1, 
+        duration: 0.3, 
+        ease: "power2.out" 
+      });
+      ringsTimeline.current.pause();
+      gsap.to([yellowLeft, blackLeft, yellowRight, blackRight], {
+        scale: 1,
+        y: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        onComplete: () => ringsTimeline.current.restart().pause(),
+      });
+    };
+
+    const container = containerRef.current;
+    container.addEventListener("mouseenter", onHoverIn);
+    container.addEventListener("mouseleave", onHoverOut);
+
+    return () => {
+      container.removeEventListener("mouseenter", onHoverIn);
+      container.removeEventListener("mouseleave", onHoverOut);
+      ringsTimeline.current.kill();
+    };
+  }, []);
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div
+        ref={containerRef}
         className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[96%] mx-auto border border-white rounded-lg bg-center bg-no-repeat bg-cover overflow-hidden"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}hero/background.jpg)`,
@@ -17,11 +112,13 @@ export default function Hero() {
                 className="absolute top-0 left-0 w-full"
               />
               <img
+                ref={yellowLeftRef}
                 src={`${import.meta.env.BASE_URL}hero/speakeryl.png`}
                 alt="Speaker Yellow Ring Left"
                 className="absolute top-0 left-0 w-full"
               />
               <img
+                ref={blackLeftRef}
                 src={`${import.meta.env.BASE_URL}hero/speakerbl.png`}
                 alt="Speaker Black Ring Left"
                 className="absolute top-0 left-0 w-full"
@@ -30,13 +127,37 @@ export default function Hero() {
 
             {/* Monitor */}
             <div className="relative z-10">
-              <div className="border border-white rounded-md p-2 pb-6 bg-gradient-to-tl from-[#0a0a0a] via-[#232323] to-[#0a0a0a]">
-                <div className="border border-white rounded-md bg-black w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] flex items-center justify-center">
+              <div className="border border-white rounded-md p-2 pb-6 bg-gradient-to-tl from-[#0b0b0b] via-[#232323] to-[#0b0b0b]">
+                <div
+                  ref={monitorRef}
+                  className="flex flex-col sm:flex-row items-center justify-center border border-white rounded-md bg-gradient-to-tl from-black via-[#131313] to-black
+                    w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] 
+                    p-1 text-center sm:text-left gap-2 sm:gap-4"
+                >
                   <img
                     className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
                     src={`${import.meta.env.BASE_URL}boxstudio.png`}
                     alt="Box Studio"
                   />
+                  <div className="hidden sm:block border-l border-white sm:h-16 md:h-24 lg:h-32"></div>
+                  <div>
+                    <p className="mt-4 sm:mt-0 text-white text-xs md:text-lg lg:text-xl">
+                      <span className="font-semibold">Music Production Home Studio</span>
+                      <br />
+                      <span className="text-gray-300">Based in Baguio City, Philippines</span>
+                    </p>
+                    <button
+                      onClick={() => {
+                        const section = document.getElementById("about");
+                        if (section) {
+                          section.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                      className="text-xs md:text-md lg:text-lg mt-2 inline-block border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer"
+                    >
+                      Learn More
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -49,11 +170,13 @@ export default function Hero() {
                 className="absolute top-0 left-0 w-full"
               />
               <img
+                ref={yellowRightRef}
                 src={`${import.meta.env.BASE_URL}hero/speakeryr.png`}
                 alt="Speaker Yellow Ring Right"
                 className="absolute top-0 left-0 w-full"
               />
               <img
+                ref={blackRightRef}
                 src={`${import.meta.env.BASE_URL}hero/speakerbr.png`}
                 alt="Speaker Black Ring Right"
                 className="absolute top-0 left-0 w-full"
@@ -63,6 +186,7 @@ export default function Hero() {
 
           {/* Mic */}
           <img
+            ref={micRef}
             src={`${import.meta.env.BASE_URL}hero/mic.png`}
             alt="Microphone"
             className="absolute -bottom-28 sm:-bottom-34 md:-bottom-48 lg:-bottom-58 left-1/2 -translate-x-1/2 min-w-64 w-64 sm:w-86 md:w-106 lg:w-128 z-50"

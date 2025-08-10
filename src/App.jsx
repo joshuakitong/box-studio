@@ -37,7 +37,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="bg-[#0b0b0b] text-white">
+      <div className="bg-[#0b0b0b] text-white font-oswald">
         <NavBar />
         <AnimatedRoutes />
       </div>

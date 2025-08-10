@@ -11,6 +11,11 @@ export default function Hero() {
   const blackRightRef = useRef(null);
   const ringsTimeline = useRef(null);
 
+  const boxstudioImgRef = useRef(null);
+  const lineBorderRef = useRef(null);
+  const textRef = useRef(null);
+  const buttonRef = useRef(null);
+
   useEffect(() => {
     const mic = micRef.current;
     const yellowLeft = yellowLeftRef.current;
@@ -47,8 +52,8 @@ export default function Hero() {
 
     const onHoverIn = () => {
       gsap.to(monitorRef.current, {
-        boxShadow: "0 0 12px 0 rgba(255, 255, 255, 0.25)",
-        duration: 0.5,
+        boxShadow: "inset 0 0 64px 12px rgba(255, 255, 255, 0.1)",
+        duration: 1,
         ease: "power2.out",
       });
       gsap.to(mic, { 
@@ -62,8 +67,8 @@ export default function Hero() {
 
     const onHoverOut = () => {
       gsap.to(monitorRef.current, {
-        boxShadow: "0 0 0px 0px rgba(0,0,0,0)",
-        duration: 0.3,
+        boxShadow: "inset 0 0 0px 0px rgba(0,0,0,0)",
+        duration: 1,
         ease: "power2.out",
       });
       gsap.to(mic, { 
@@ -86,10 +91,32 @@ export default function Hero() {
     container.addEventListener("mouseenter", onHoverIn);
     container.addEventListener("mouseleave", onHoverOut);
 
+    const loadTimeline = gsap.timeline();
+
+    loadTimeline
+      .fromTo(boxstudioImgRef.current,
+        { opacity: 0, y: -15 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }
+      )
+      .fromTo(lineBorderRef.current,
+        { opacity: 0, scaleY: 0, transformOrigin: "top center" },
+        { opacity: 1, scaleY: 1, duration: 0.3, ease: "power3.out" }
+      )
+      .fromTo(textRef.current,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+        "<"
+      )
+      .fromTo(buttonRef.current,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }
+      );
+
     return () => {
       container.removeEventListener("mouseenter", onHoverIn);
       container.removeEventListener("mouseleave", onHoverOut);
       ringsTimeline.current.kill();
+      loadTimeline.kill();
     };
   }, []);
 
@@ -135,18 +162,30 @@ export default function Hero() {
                     p-1 text-center sm:text-left gap-2 sm:gap-4"
                 >
                   <img
+                    ref={boxstudioImgRef}
                     className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
                     src={`${import.meta.env.BASE_URL}boxstudio.png`}
                     alt="Box Studio"
                   />
-                  <div className="hidden sm:block border-l border-white sm:h-16 md:h-24 lg:h-32"></div>
+                  <div
+                    ref={lineBorderRef}
+                    className="hidden sm:block border-l border-white sm:h-16 md:h-24 lg:h-32"
+                  ></div>
                   <div>
-                    <p className="mt-4 sm:mt-0 text-white text-xs md:text-lg lg:text-xl">
-                      <span className="font-semibold">Music Production Home Studio</span>
+                    <p
+                      ref={textRef}
+                      className="mt-4 sm:mt-0 text-white text-xs md:text-lg lg:text-xl"
+                    >
+                      <span className="font-semibold">
+                        Music Production Home Studio
+                      </span>
                       <br />
-                      <span className="text-gray-300">Based in Baguio City, Philippines</span>
+                      <span className="text-gray-300">
+                        Based in Baguio City, Philippines
+                      </span>
                     </p>
                     <button
+                      ref={buttonRef}
                       onClick={() => {
                         const section = document.getElementById("about");
                         if (section) {

@@ -157,10 +157,16 @@ export default function Hero() {
               <div className="border border-white rounded-md p-2 pb-6 bg-gradient-to-tl from-[#0b0b0b] via-[#232323] to-[#0b0b0b]">
                 <div
                   ref={monitorRef}
-                  className="flex flex-col sm:flex-row items-center justify-center border border-white rounded-md bg-gradient-to-tl from-black via-[#131313] to-black
+                  className="relative overflow-hidden flex flex-col sm:flex-row items-center justify-center border border-white rounded-md bg-gradient-to-tl from-black via-[#131313] to-black
                     w-[12rem] h-[21rem] sm:w-[23rem] sm:h-[13rem] md:w-[34rem] md:h-[19rem] lg:w-[45rem] lg:h-[25rem] 
                     p-1 text-center sm:text-left gap-2 sm:gap-4"
                 >
+                  <img
+                    src={`${import.meta.env.BASE_URL}hero/static.gif`}
+                    alt="Static Overlay"
+                    className="pointer-events-none absolute inset-0 w-full h-full rounded-md object-cover opacity-1 mix-blend-screen"
+                    style={{ zIndex: 5 }}
+                  />
                   <img
                     ref={boxstudioImgRef}
                     className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"

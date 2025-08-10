@@ -23,7 +23,7 @@ export default function Hero() {
     ringsTimeline.current.to(
       [yellowLeft, yellowRight],
       {
-        scale: 1.015,
+        scale: 1.025,
         y: -1,
         duration: 0.33,
         yoyo: true,
@@ -35,7 +35,7 @@ export default function Hero() {
     ringsTimeline.current.to(
       [blackLeft, blackRight],
       {
-        scale: 1.0175,
+        scale: 1.02,
         y: -1.5,
         duration: 0.33,
         yoyo: true,

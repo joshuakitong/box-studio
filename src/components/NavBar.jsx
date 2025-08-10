@@ -14,7 +14,7 @@ export default function NavBar() {
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
       <ul className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 px-4 md:px-8 py-2 rounded-full 
                      bg-black/30 backdrop-blur-sm border border-white 
-                     text-sm md:text-lg sm:text-md font-semibold">
+                     text-xs sm:text-sm md:text-md lg:text-lg font-semibold">
         {links.map((link) => (
           <li key={link.path}>
             <Link

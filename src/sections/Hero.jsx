@@ -170,7 +170,7 @@ export default function Hero() {
                   <img
                     ref={boxstudioImgRef}
                     className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
-                    src={`${import.meta.env.BASE_URL}boxstudio.png`}
+                    src={`${import.meta.env.BASE_URL}hero/boxstudio.png`}
                     alt="Box Studio"
                   />
                   <div

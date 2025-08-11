@@ -55,7 +55,7 @@ export default function Contact() {
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
+            className="w-full p-2 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function Contact() {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
+            className="w-full p-2 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
           />
         </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
             id="topic"
             name="topic"
             required
-            className="w-full px-4 py-3 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
+            className="w-full p-2 rounded-lg bg-transparent border border-white focus:border-white outline-none transition"
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function Contact() {
             name="message"
             rows="5"
             required
-            className="w-full px-4 py-3 rounded-lg bg-transparent border border-white focus:border-white outline-none transition resize-none"
+            className="w-full p-2 rounded-lg bg-transparent border border-white focus:border-white outline-none transition resize-none"
           ></textarea>
         </div>
 
@@ -103,7 +103,7 @@ export default function Contact() {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full px-6 py-3 rounded-full border border-white text-white font-semibold transition-colors duration-300 cursor-pointer flex items-center justify-center ${
+          className={`w-full p-2 rounded-full border border-white text-white font-semibold transition-colors duration-300 cursor-pointer flex items-center justify-center ${
             loading
               ? "opacity-70 hover:cursor-not-allowed"
               : "hover:bg-white hover:text-black"

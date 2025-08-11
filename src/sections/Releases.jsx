@@ -35,8 +35,8 @@ export default function Releases() {
 
         {/* Social Links Section */}
         <div className="mt-8 w-full text-center">
-          <p className="mb-2 text-lg font-medium text-white">
-            Find more releases at:
+          <p className="mb-2 text-xs sm:text-sm md:text-md lg:text-lg font-medium text-white">
+            Find more at:
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
@@ -59,8 +59,8 @@ export default function Releases() {
             </a>
           </div>
 
-          <p className="mb-2 text-lg font-medium text-white">
-            Follow us on social media to stay updated:
+          <p className="mb-2 text-xs sm:text-sm md:text-md lg:text-lg font-medium text-white">
+            Follow us on social media:
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

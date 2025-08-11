@@ -43,7 +43,7 @@ export default function Services() {
             <div
               onClick={() => navigate("/services")}
               key={idx}
-              className="group flex flex-col items-center justify-center gap-4 p-4 bg-black text-white rounded-4xl border border-white
+              className="group flex flex-col items-center justify-center gap-4 p-4 bg-black/80 backdrop-blur-sm text-white rounded-4xl border border-white
                          hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"
             >
               <Icon

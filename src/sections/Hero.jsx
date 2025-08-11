@@ -59,7 +59,7 @@ export default function Hero() {
       gsap.to(mic, { 
         y: 42, 
         scale:1.1, 
-        uration: 0.7, 
+        duration: 0.7, 
         ease: "power2.out" 
       });
       ringsTimeline.current.play();

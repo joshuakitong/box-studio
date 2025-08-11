@@ -124,7 +124,7 @@ export default function Hero() {
     <div className="flex items-center justify-center min-h-screen">
       <div
         ref={containerRef}
-        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[90%] mx-auto border border-white rounded-lg bg-center bg-no-repeat bg-cover overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[90%] mx-auto border border-white rounded-4xl bg-center bg-no-repeat bg-cover overflow-hidden"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}hero/background.jpg)`,
         }}
@@ -132,7 +132,7 @@ export default function Hero() {
         <div className="pb-12 mt-12 max-w-full flex justify-center w-full">
           <div className="relative flex items-center justify-center max-w-fit">
             {/* Left Speaker */}
-            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-4 sm:-mr-2 -mt-28 sm:-mt-30 md:-mt-34 lg:-mt-68">
+            <div className="relative flex justify-center items-center min-w-52 md:min-w-64 lg:min-w-96 z-0 -mr-3 -mt-6 sm:-mt-32 md:-mt-34 lg:-mt-68">
               <img
                 src={`${import.meta.env.BASE_URL}hero/speakerbodyl.png`}
                 alt="Speaker Body Left"
@@ -175,7 +175,7 @@ export default function Hero() {
                   />
                   <div
                     ref={lineBorderRef}
-                    className="hidden sm:block border-l border-white sm:h-16 md:h-24 lg:h-32"
+                    className="hidden sm:block border border-white sm:h-16 md:h-24 lg:h-32"
                   ></div>
                   <div>
                     <p
@@ -195,7 +195,10 @@ export default function Hero() {
                       onClick={() => {
                         const section = document.getElementById("about");
                         if (section) {
-                          section.scrollIntoView({ behavior: "smooth" });
+                          const yOffset = -96;
+                          const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                          window.scrollTo({ top: y, behavior: "smooth" });
                         }
                       }}
                       className="text-xs md:text-md lg:text-lg mt-2 inline-block border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer"
@@ -208,7 +211,7 @@ export default function Hero() {
             </div>
 
             {/* Right Speaker */}
-            <div className="relative flex justify-center items-center min-w-64 sm:min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-4 sm:-ml-2 -mt-28 sm:-mt-30 md:-mt-34 lg:-mt-68">
+            <div className="relative flex justify-center items-center min-w-52 md:min-w-64 lg:min-w-96 z-0 -ml-3 -mt-6 sm:-mt-32 md:-mt-34 lg:-mt-68">
               <img
                 src={`${import.meta.env.BASE_URL}hero/speakerbodyr.png`}
                 alt="Speaker Body Right"

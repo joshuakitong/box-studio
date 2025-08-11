@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Mail, Facebook, Instagram } from "lucide-react";
 
 export default function Contact() {
   const [showAlert, setShowAlert] = useState(false);
@@ -30,7 +31,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-6 py-16">
+    <div className="flex flex-col items-center px-6 py-12">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
         Contact Us
       </h2>
@@ -45,7 +46,7 @@ export default function Contact() {
         onSubmit={handleSubmit}
         className="w-full max-w-lg bg-black text-white rounded-3xl p-8 border border-white focus:border-white outline-none transition"
       >
-        <div className="mb-6">
+        <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium">
             Name
           </label>
@@ -58,7 +59,7 @@ export default function Contact() {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label htmlFor="email" className="block mb-2 font-medium">
             Email
           </label>
@@ -71,7 +72,7 @@ export default function Contact() {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label htmlFor="topic" className="block mb-2 font-medium">
             Topic
           </label>
@@ -84,7 +85,7 @@ export default function Contact() {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label htmlFor="message" className="block mb-2 font-medium">
             Message
           </label>
@@ -115,6 +116,37 @@ export default function Contact() {
           )}
         </button>
       </form>
+
+      {/* Direct Contact Section */}
+      <div className="mt-4 w-full max-w-lg text-center">
+        <p className="mb-2 text-lg font-medium text-white">
+          Or message us directly through:
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:boxeightyfour@gmail.com"
+            className="w-full sm:w-auto p-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <Mail size={20} />
+          </a>
+          <a
+            href="https://www.facebook.com/box84official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto p-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <Facebook size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/box84official"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto p-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <Instagram size={20} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

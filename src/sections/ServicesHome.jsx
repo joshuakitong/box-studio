@@ -34,16 +34,14 @@ export default function Services() {
         backgroundImage: `url(${import.meta.env.BASE_URL}services/servicesbackground.jpg)`,
       }}
     >
-      <div
-        onClick={() => navigate("/services")}
-        className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-12"
-      >
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white">
           Our Services
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map(({ title, description, icon: Icon }, idx) => (
             <div
+              onClick={() => navigate("/services")}
               key={idx}
               className="group flex flex-col items-center justify-center gap-4 p-4 bg-black text-white rounded-4xl border border-white
                          hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"

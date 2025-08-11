@@ -16,14 +16,12 @@ export default function Releases() {
 
   return (
     <div className="flex flex-col justify-center w-full mx-auto px-6 py-12">
-      <h2 className="relative z-10 text-2xl sm:text-3xl font-bold text-center mb-6">
-        Releases
-      </h2>
+      <h2 className="relative z-10 text-2xl sm:text-3xl font-bold text-center mb-6">Releases</h2>
 
-      <div className="relative w-full max-w-3xl mx-auto rounded-4xl overflow-hidden border border-white p-6">
+      <div className="relative w-full max-w-3xl mx-auto rounded-4xl overflow-hidden border border-white p-6 bg-black/80 backdrop-blur-sm">
         <div className="text-center text-white">
           <p className="text-sm sm:text-md md:text-lg lg:text-xl mb-6">
-            Check out our featured releases produced at Box Studio
+            Check out our featured releases, produced at Box Studio.
           </p>
         </div>
 
@@ -38,7 +36,7 @@ export default function Releases() {
         {/* Social Links Section */}
         <div className="mt-8 w-full text-center">
           <p className="mb-2 text-lg font-medium text-white">
-            Find more releases on:
+            Find more releases at:
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a

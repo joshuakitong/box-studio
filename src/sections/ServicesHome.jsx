@@ -28,32 +28,42 @@ export default function Services() {
   ];
 
   return (
-    <div 
-      onClick={() => navigate("/services")}
-      className="max-w-6xl mx-auto px-6 pt-12"
+    <div
+      className="relative w-full bg-cover bg-center bg-no-repeat border-b"
+      style={{
+        backgroundImage: `url(${import.meta.env.BASE_URL}services/servicesbackground.jpg)`,
+      }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Our Services</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map(({ title, description, icon: Icon }, idx) => (
-          <div
-            key={idx}
-            className="group flex flex-col items-center justify-center gap-4 p-4 bg-black text-white rounded-4xl border border-white
-                       hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"
-          >
-            <Icon
-              size={42}
-              className="group-hover:hidden transition-all duration-300"
-            />
+      {/* Optional dark overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
-            <p className="text-sm sm:text-md md:text-lg lg:text-xl text-center font-semibold group-hover:hidden">
-              {title}
-            </p>
-
-            <p className="text-xs sm:text-sm md:text-md lg:text-lg text-center opacity-0 group-hover:opacity-100 group-hover:block hidden transition-opacity duration-300">
-              {description}
-            </p>
-          </div>
-        ))}
+      <div
+        onClick={() => navigate("/services")}
+        className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-12"
+      >
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map(({ title, description, icon: Icon }, idx) => (
+            <div
+              key={idx}
+              className="group flex flex-col items-center justify-center gap-4 p-4 bg-black text-white rounded-4xl border border-white
+                         hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"
+            >
+              <Icon
+                size={42}
+                className="group-hover:hidden transition-all duration-300"
+              />
+              <p className="text-sm sm:text-md md:text-lg lg:text-xl text-center font-semibold group-hover:hidden">
+                {title}
+              </p>
+              <p className="text-xs sm:text-sm md:text-md lg:text-lg text-center opacity-0 group-hover:opacity-100 group-hover:block hidden transition-opacity duration-300">
+                {description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

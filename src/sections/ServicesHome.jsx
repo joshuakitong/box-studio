@@ -34,9 +34,6 @@ export default function Services() {
         backgroundImage: `url(${import.meta.env.BASE_URL}services/servicesbackground.jpg)`,
       }}
     >
-      {/* Optional dark overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
-
       <div
         onClick={() => navigate("/services")}
         className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-12"

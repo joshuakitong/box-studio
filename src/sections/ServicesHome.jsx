@@ -1,7 +1,60 @@
-export default function ServicesHome() {
+import { Music, MicVocal, AudioWaveform, ListMusic } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+export default function Services() {
+  const navigate = useNavigate();
+
+  const services = [
+    {
+      title: "Music Production",
+      description: "Turn your ideas into fully produced tracks.",
+      icon: Music,
+    },
+    {
+      title: "Recording",
+      description: "Record your vocals and instruments.",
+      icon: MicVocal,
+    },
+    {
+      title: "Mix and Master",
+      description: "Polish your tracks for release-ready quality.",
+      icon: AudioWaveform,
+    },
+    {
+      title: "Music Publishing",
+      description: "Release your music on all major platforms.",
+      icon: ListMusic,
+    },
+  ];
+
   return (
-    <div className="flex items-center justify-center min-h-screen max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold">Services Section (Home)</h1>
+    <div 
+      onClick={() => navigate("/services")}
+      className="max-w-6xl mx-auto px-6 py-12"
+    >
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Our Services</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map(({ title, description, icon: Icon }, idx) => (
+          <div
+            key={idx}
+            className="group flex flex-col items-center justify-center gap-4 p-4 bg-black text-white rounded-4xl border border-white
+                       hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"
+          >
+            <Icon
+              size={48}
+              className="group-hover:hidden transition-all duration-300"
+            />
+
+            <p className="text-sm sm:text-md md:text-lg lg:text-xl text-center font-semibold group-hover:hidden">
+              {title}
+            </p>
+
+            <p className="text-xs sm:text-sm md:text-md lg:text-lg text-center opacity-0 group-hover:opacity-100 group-hover:block hidden transition-opacity duration-300">
+              {description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function Services() {
   return (
     <div 
       onClick={() => navigate("/services")}
-      className="max-w-6xl mx-auto px-6 py-12"
+      className="max-w-6xl mx-auto px-6 pt-12"
     >
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Our Services</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -41,7 +41,7 @@ export default function Services() {
                        hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl min-h-40"
           >
             <Icon
-              size={48}
+              size={42}
               className="group-hover:hidden transition-all duration-300"
             />
 

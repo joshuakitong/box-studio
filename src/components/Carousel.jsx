@@ -18,7 +18,7 @@ export default function Carousel({ items, height }) {
 
   return (
     <div className="w-full max-w-3xl mx-auto flex flex-col items-center gap-4">
-      <div className="relative w-full overflow-hidden rounded-4xl border border-white">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-white">
         <iframe
           src={items[index]}
           height={height}

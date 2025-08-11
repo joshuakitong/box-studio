@@ -1,6 +1,6 @@
 export default function AboutHome() {
   return (
-    <div className="relative w-full py-16 px-6 sm:px-12 mt-12 border-y border-white">
+    <div className="relative w-full py-16 px-6 sm:px-12 border-y border-white">
       {/* Background image */}
       <img
         src={`${import.meta.env.BASE_URL}about/aboutbackground.jpg`}

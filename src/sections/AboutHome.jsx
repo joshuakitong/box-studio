@@ -10,7 +10,7 @@ export default function AboutHome() {
 
       <div className="relative w-full max-w-xl mx-auto rounded-4xl overflow-hidden border border-white">
         <div className="bg-black/80 backdrop-blur-sm text-white px-4 py-6">
-          <p className="text-sm sm:text-md md:text-lg lg:text-xl text-center">
+          <p className="text-xs sm:text-sm md:text-md lg:text-lg text-center">
             Box Studio is a music production home studio based in Baguio City, specializing in hip-hop but open to all genres.
             Operating under the independent record label and artist collective BOX84, we provide comprehensive services to help artists bring their creative vision to life.
             From music production and recording to mixing, mastering, and distribution on all major streaming platforms, we’re dedicated to supporting you every step of the way.

@@ -4,7 +4,7 @@ export default function About() {
       <h2 className="relative z-10 mb-6 text-2xl sm:text-3xl font-bold text-center">About Us</h2>
       <div className="relative w-full max-w-3xl mx-auto rounded-4xl overflow-hidden border border-white">
         <div className="bg-black/80 backdrop-blur-sm text-white px-4 py-6">
-          <p className="text-sm sm:text-md md:text-lg lg:text-xl text-center">
+          <p className="text-xs sm:text-sm md:text-md lg:text-lg text-center">
             Box Studio is a home-based music production studio in Baguio City, Philippines, operating under BOX84, an independent record label and artist collective established in 2020.
             We work across genres with a primary focus on hip-hop.<br/><br/>
 

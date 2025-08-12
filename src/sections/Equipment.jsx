@@ -1,6 +1,6 @@
 export default function Equipment() {
   return (
-    <div className="flex flex-col justify-center w-full px-6 pt-12">
+    <div className="flex flex-col justify-center w-full px-6 py-12">
       <div className="relative z-10 max-w-full mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-white">
           Equipment

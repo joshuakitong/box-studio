@@ -72,10 +72,10 @@ export default function Hero() {
         ease: "power2.out",
       });
       gsap.to(mic, { 
-        y: 0, 
-        scale:1, 
-        duration: 0.3, 
-        ease: "power2.out" 
+        y: 0,
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out"
       });
       ringsTimeline.current.pause();
       gsap.to([yellowLeft, blackLeft, yellowRight, blackRight], {
@@ -121,10 +121,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen px-4 sm:px-16">
       <div
         ref={containerRef}
-        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full max-w-[90%] mx-auto border border-white rounded-4xl bg-center bg-no-repeat bg-cover overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] w-full mx-auto border border-white rounded-4xl bg-center bg-no-repeat bg-cover overflow-hidden"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}hero/background.jpg)`,
         }}

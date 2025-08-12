@@ -2,7 +2,12 @@
 
 This is a responsive landing page built with **React**, **Vite**, **Tailwind CSS**, and **GSAP**, showcasing Box Studio services.
 
-Live: [View Site](https://joshuakitong.github.io/box-studio)
+Live: [View Site](https://box-studio.vercel.app/#)
+
+## Features
+ - Responsive Design
+ - Animations with GSAP
+ - Iframe Carousel Integration
 
 <details>
   <summary><strong>How to Run Locally</strong></summary>

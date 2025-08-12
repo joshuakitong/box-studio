@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Services() {
   const services = [
     {
@@ -33,7 +35,11 @@ export default function Services() {
           Our Services
         </h2>
         <p className="text-center text-xs sm:text-sm md:text-md lg:text-lg text-white mb-6">
-          We are flexible on our rates. Connect with us to learn more.
+          We are flexible on our rates.{" "}
+          <Link to="/contact" className="underline hover:text-blue-500">
+            Connect
+          </Link>{" "}
+          with us to learn more.
         </p>
 
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2">

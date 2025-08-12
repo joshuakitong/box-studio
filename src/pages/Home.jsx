@@ -13,7 +13,7 @@ export default function Home() {
         <HomeAboutSection />
       </section>
       <HomeServicesSection />
-      <ContactSection />
+      <ContactSection animate="true" />
     </>
   );
 }

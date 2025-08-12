@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { Mail, Facebook, Instagram } from "lucide-react";
 
-export default function Contact() {
+export default function Contact({ animate = false}) {
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -30,21 +31,68 @@ export default function Contact() {
     }
   };
 
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const formRef = useRef(null);
+  const linksRef = useRef(null);
+
+  useEffect(() => {
+    if (!animate) return;
+
+    const container = containerRef.current;
+    const title = titleRef.current;
+    const form = formRef.current;
+    const links = linksRef.current;
+
+    gsap.set([title, form, links], { opacity: 0, y: 10, filter: "blur(4px)" });
+
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+
+          const tl = gsap.timeline();
+
+          tl.to(title, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
+            .to(form, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
+            .to(links, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" });
+
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (container) {
+      observer.observe(container);
+    }
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   return (
-    <div className="flex flex-col items-center px-6 py-12">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center px-6 py-12"
+    >
+      <h2
+        ref={titleRef}
+        className="text-2xl sm:text-3xl font-bold text-center mb-6"
+      >
         Contact Us
       </h2>
-
       {showAlert && (
-        <div className="mb-6 w-full max-w-lg p-4 rounded-lg border border-green-400 bg-green-100 text-green-700 text-center">
+        <div className="mb-6 w-full max-w-lg p-4 rounded-full border border-green-400 bg-black text-green-400 text-center">
           Your message has been sent successfully!
         </div>
       )}
 
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-black/80 backdrop-blur-sm text-white rounded-3xl p-8 border border-white focus:border-white outline-none transition"
+        className="w-full max-w-lg bg-black/80 backdrop-blur-sm text-white rounded-3xl p-8 border border-white focus:border-white outline-none"
       >
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium">
@@ -117,15 +165,17 @@ export default function Contact() {
         </button>
       </form>
 
-      {/* Direct Contact Section */}
-      <div className="mt-4 w-full max-w-lg text-center">
+      <div
+        ref={linksRef}
+        className="mt-4 w-full max-w-lg text-center"
+      >
         <p className="mb-2 text-lg font-medium text-white">
           Or message us directly through:
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:boxeightyfour@gmail.com"
-            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="bg-black/80 p-2 rounded-full border border-white text-white"
           >
             <Mail size={20} />
           </a>
@@ -133,7 +183,7 @@ export default function Contact() {
             href="https://www.facebook.com/box84official/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="bg-black/80 p-2 rounded-full border border-white text-white"
           >
             <Facebook size={20} />
           </a>
@@ -141,7 +191,7 @@ export default function Contact() {
             href="https://www.instagram.com/box84official"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="bg-black/80 p-2 rounded-full border border-white text-white"
           >
             <Instagram size={20} />
           </a>

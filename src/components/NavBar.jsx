@@ -14,7 +14,7 @@ export default function NavBar() {
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
       <ul
         className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 px-4 md:px-8 py-2 rounded-full
-                   bg-black/30 backdrop-blur-sm border border-white
+                   bg-black/80 backdrop-blur-sm border border-white
                    text-xs sm:text-sm md:text-md lg:text-lg"
       >
         {links.map((link) => {
@@ -27,7 +27,7 @@ export default function NavBar() {
                   if (isActive) e.preventDefault();
                 }}
                 className={`whitespace-nowrap transition-colors hover:text-white ${
-                  isActive ? "text-white cursor-default" : "text-gray-400"
+                  isActive ? "text-white cursor-default" : "text-gray-300"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >

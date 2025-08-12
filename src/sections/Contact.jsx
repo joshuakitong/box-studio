@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Facebook, Instagram } from "lucide-react";
 
-export default function Contact({ animate = false}) {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Contact({ animate }) {
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -46,41 +49,20 @@ export default function Contact({ animate = false}) {
 
     gsap.set([title, form, links], { opacity: 0, y: 10, filter: "blur(4px)" });
 
-    let hasAnimated = false;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-
-          const tl = gsap.timeline();
-
-          tl.to(title, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 75%",
+        toggleActions: "play none none none",
+      },
+    }).to(title, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
             .to(form, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
             .to(links, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" });
-
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (container) {
-      observer.observe(container);
-    }
-
-    return () => observer.disconnect();
-  }, [location.pathname]);
+  }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="flex flex-col items-center px-6 py-12"
-    >
-      <h2
-        ref={titleRef}
-        className="text-2xl sm:text-3xl font-bold text-center mb-6"
-      >
+    <div ref={containerRef} className="flex flex-col items-center px-6 py-12">
+      <h2 ref={titleRef} className="text-2xl sm:text-3xl font-bold text-center mb-6">
         Contact Us
       </h2>
       {showAlert && (
@@ -165,10 +147,7 @@ export default function Contact({ animate = false}) {
         </button>
       </form>
 
-      <div
-        ref={linksRef}
-        className="mt-4 w-full max-w-lg text-center"
-      >
+      <div ref={linksRef} className="mt-4 w-full max-w-lg text-center">
         <p className="mb-2 text-lg font-medium text-white">
           Or message us directly through:
         </p>

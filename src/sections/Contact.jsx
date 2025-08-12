@@ -44,7 +44,7 @@ export default function Contact() {
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-black text-white rounded-3xl p-8 border border-white focus:border-white outline-none transition"
+        className="w-full max-w-lg bg-black/80 backdrop-blur-sm text-white rounded-3xl p-8 border border-white focus:border-white outline-none transition"
       >
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium">
@@ -125,7 +125,7 @@ export default function Contact() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:boxeightyfour@gmail.com"
-            className="w-full sm:w-auto p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
           >
             <Mail size={20} />
           </a>
@@ -133,7 +133,7 @@ export default function Contact() {
             href="https://www.facebook.com/box84official/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
           >
             <Facebook size={20} />
           </a>
@@ -141,7 +141,7 @@ export default function Contact() {
             href="https://www.instagram.com/box84official"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-black/80 backdrop-blur-sm p-2 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-2"
           >
             <Instagram size={20} />
           </a>

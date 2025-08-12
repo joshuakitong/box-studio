@@ -95,21 +95,21 @@ export default function Hero() {
 
     loadTimeline
       .fromTo(boxstudioImgRef.current,
-        { opacity: 0, y: -15 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }
+        { opacity: 0, y: -15, filter: "blur(4px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
       )
       .fromTo(lineBorderRef.current,
-        { opacity: 0, scaleY: 0, transformOrigin: "top center" },
-        { opacity: 1, scaleY: 1, duration: 0.3, ease: "power3.out" }
+        { opacity: 0, scaleY: 0, filter: "blur(4px)", transformOrigin: "top center" },
+        { opacity: 1, scaleY: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }
       )
       .fromTo(textRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+        { opacity: 0, y: 15, filter: "blur(4px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" },
         "<"
       )
       .fromTo(buttonRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }
+        { opacity: 0, y: 15, filter: "blur(4px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
       );
 
     return () => {

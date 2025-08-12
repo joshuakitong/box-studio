@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutHome() {
   const containerRef = useRef(null);
@@ -15,28 +18,17 @@ export default function AboutHome() {
     gsap.set(title, { opacity: 0, y: 10, filter: "blur(4px)" });
     gsap.set(para, { opacity: 0, y: 10, filter: "blur(4px)" });
 
-    let hasAnimated = false;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-
-          const timeline = gsap.timeline();
-
-          timeline.to(container, { opacity: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" })
-            .to(title, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
-            .to(para, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" });
-
-          observer.disconnect();
-        }
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 75%",
+        toggleActions: "play none none none",
       },
-      { threshold: 0.3 }
-    );
+    })
+      .to(container, { opacity: 1, filter: "blur(0px)", duration: 1, ease: "power2.out" })
+      .to(title, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" })
+      .to(para, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" });
 
-    observer.observe(container);
-
-    return () => observer.disconnect();
   }, []);
 
   return (

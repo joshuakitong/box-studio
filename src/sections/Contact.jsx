@@ -151,7 +151,7 @@ export default function Contact({ animate }) {
         <p className="mb-2 text-lg font-medium text-white">
           Or message us directly through:
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-row gap-4 justify-center">
           <a
             href="mailto:boxeightyfour@gmail.com"
             className="bg-black/80 p-2 rounded-full border border-white text-white"

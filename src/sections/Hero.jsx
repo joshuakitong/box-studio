@@ -192,18 +192,18 @@ export default function Hero() {
                   />
                   <img
                     ref={boxstudioImgRef}
-                    className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain"
+                    className="max-w-24 md:max-w-36 lg:max-w-48 max-h-full object-contain opacity-0"
                     src={`${import.meta.env.BASE_URL}hero/boxstudio.png`}
                     alt="Box Studio"
                   />
                   <div
                     ref={lineBorderRef}
-                    className="hidden sm:block border border-white sm:h-16 md:h-24 lg:h-32"
+                    className="hidden sm:block border border-white sm:h-16 md:h-24 lg:h-32 opacity-0"
                   ></div>
                   <div>
                     <p
                       ref={textRef}
-                      className="mt-4 sm:mt-0 text-white text-xs md:text-lg lg:text-xl"
+                      className="mt-4 sm:mt-0 text-white text-xs md:text-lg lg:text-xl opacity-0"
                     >
                       <span className="font-semibold">
                         Music Production Home Studio
@@ -224,7 +224,7 @@ export default function Hero() {
                           window.scrollTo({ top: y, behavior: "smooth" });
                         }
                       }}
-                      className="text-xs md:text-md lg:text-lg mt-2 inline-block border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer"
+                      className="text-xs md:text-md lg:text-lg mt-2 inline-block border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer opacity-0"
                     >
                       Learn More
                     </button>

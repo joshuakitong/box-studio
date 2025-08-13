@@ -91,32 +91,55 @@ export default function Hero() {
     container.addEventListener("mouseenter", onHoverIn);
     container.addEventListener("mouseleave", onHoverOut);
 
-    const loadTimeline = gsap.timeline();
+    const images = [
+      boxstudioImgRef.current,
+      yellowLeft,
+      blackLeft,
+      yellowRight,
+      blackRight,
+      mic,
+    ];
 
-    loadTimeline
-      .fromTo(boxstudioImgRef.current,
-        { opacity: 0, y: -15, filter: "blur(4px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
-      )
-      .fromTo(lineBorderRef.current,
-        { opacity: 0, scaleY: 0, filter: "blur(4px)", transformOrigin: "top center" },
-        { opacity: 1, scaleY: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }
-      )
-      .fromTo(textRef.current,
-        { opacity: 0, y: 15, filter: "blur(4px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" },
-        "<"
-      )
-      .fromTo(buttonRef.current,
-        { opacity: 0, y: 15, filter: "blur(4px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
-      );
+    const loadImage = (img) =>
+      new Promise((resolve) => {
+        if (img && img.complete) {
+          resolve();
+        } else if (img) {
+          img.onload = resolve;
+          img.onerror = resolve;
+        } else {
+          resolve();
+        }
+      });
+
+    //Start animation only after images are loaded
+    Promise.all(images.map(loadImage)).then(() => {
+      const loadTimeline = gsap.timeline();
+
+      loadTimeline
+        .fromTo(boxstudioImgRef.current,
+          { opacity: 0, y: -15, filter: "blur(4px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
+        )
+        .fromTo(lineBorderRef.current,
+          { opacity: 0, scaleY: 0, filter: "blur(4px)", transformOrigin: "top center" },
+          { opacity: 1, scaleY: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }
+        )
+        .fromTo(textRef.current,
+          { opacity: 0, y: 15, filter: "blur(4px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" },
+          "<"
+        )
+        .fromTo(buttonRef.current,
+          { opacity: 0, y: 15, filter: "blur(4px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }
+        );
+    });
 
     return () => {
       container.removeEventListener("mouseenter", onHoverIn);
       container.removeEventListener("mouseleave", onHoverOut);
       ringsTimeline.current.kill();
-      loadTimeline.kill();
     };
   }, []);
 
